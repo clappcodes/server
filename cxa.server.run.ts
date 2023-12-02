@@ -25,7 +25,14 @@ module cxa.server.run {
 
 	export function start() {
 		const appProcess = spawn(props.appPath, [props.runFile], {
-			env: { ELECTRON_RUN_AS_NODE: "1" },
+			env: {
+				/**
+				 * Starts the process as a normal Node.js process.
+				 * In this mode, you will be able to pass cli options to Node.js as you would when running the normal Node.js executable
+				 * @link https://www.electronjs.org/docs/latest/api/environment-variables#electron_run_as_node
+				 */
+				ELECTRON_RUN_AS_NODE: "1",
+			},
 		});
 
 		[appProcess.stdout, appProcess.stderr].forEach(redirectOutput);
