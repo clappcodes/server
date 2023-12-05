@@ -5,14 +5,17 @@ import pkg from './package.json' assert { type: "json" }
 const arg = process.argv[2]
 
 console.log(`\n${pkg.name} v${pkg.version}\n`)
+console.log(process.send)
 
+/**
+ * @type {import('esbuild').BuildOptions}
+ */
 const options = {
-    entryPoints: ["./src/*.ts"],
-    bundle: true,
-    sourcemap: true,
+    entryPoints: ["./src/**/*.ts"],
+    sourcemap: 'linked',
     outdir: './lib',
     platform: 'node',
-    external: ["esbuild"],
+    format: "cjs",
     logLevel: "debug",
     banner: {
         js: `// ${pkg.name} v${pkg.version}`
@@ -34,3 +37,12 @@ if (arg === '--watch') {
     console.log(`Build done in ${took}ms`)
     await ctx.dispose()
 }
+
+async function onExit(e) {
+    ctx.dispose()
+    console.log('[onExit]', e)
+}
+
+[`exit`, `SIGINT`, `SIGUSR1`, `SIGUSR2`, `uncaughtException`, `SIGTERM`].forEach((eventType) => {
+    process.on(eventType, onExit.bind(null, eventType));
+})

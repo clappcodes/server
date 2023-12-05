@@ -2,6 +2,7 @@
   "name": "@clapp/server",
   "version": "1.0.2",
   "license": "MIT",
+  "type": "commonjs",
   "main": "./lib/main.js",
   "exports": {
     ".": "./lib/main.js",
@@ -14,8 +15,8 @@
     "esbuild:build": "node ./esbuild.mjs",
     "esbuild:watch": "node ./esbuild.mjs --watch",
     "node:watch": "node --enable-source-maps --watch lib/main.js",
-    "tsc:dts": "tsc -d --emitDeclarationOnly",
-    "tsc:dts:watch": "tsc --emitDeclarationOnly --watch",
+    "tsc:dts": "tsc",
+    "tsc:dts:watch": "tsc --watch",
     "build": "npm run esbuild:build && npm run tsc:dts",
     "dev": "npm run esbuild:watch"
   },

@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import path from "path";
-
+//
 export async function symlink(appPath: string, libPath = "app.dev/lib") {
 	if (!fs.existsSync(appPath)) {
 		throw new Error(`App not found at: ${appPath}`);

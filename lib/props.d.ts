@@ -1,5 +1,6 @@
 import * as esbuild from "esbuild";
 export declare class Props {
+    version: number;
     /**
      * ESBuild serve port
      */
@@ -31,3 +32,4 @@ export declare class Props {
     proFile(file: string): string;
 }
 export declare const props: Props;
+//# sourceMappingURL=props.d.ts.map

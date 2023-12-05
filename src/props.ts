@@ -2,6 +2,8 @@ import * as esbuild from "esbuild";
 import * as path from "path";
 
 export class Props {
+	version = 1;
+
 	/**
 	 * ESBuild serve port
 	 */
@@ -40,19 +42,17 @@ export class Props {
 		return path.resolve(this.devPath, "pro"); // project files
 	}
 	get runFile(): string {
-		return path.resolve(this.libPath, "app.js");
+		return path.resolve(this.libPath, "@clapp/server/lib/app.js");
 	}
 
 	get build(): esbuild.BuildOptions {
 		return {
-			entryPoints: [this.proFile("main.ts"), this.libFile("main.ts")],
-			bundle: true,
+			entryPoints: ["./**/*.ts"],
 			platform: "node",
 			color: true,
 			logLevel: "debug",
-			target: ["es2020", "node12"],
-			outdir: this.devPath,
-			external: ["esbuild"],
+			format: "cjs",
+			outdir: "./",
 		};
 	}
 

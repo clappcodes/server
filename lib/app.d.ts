@@ -1,5 +1,6 @@
-import { props } from './props';
-import { state } from './state';
+import { Props } from "./props";
+import { state } from "./state";
+declare const props: Props;
 export { props, state };
-export declare function init(force?: boolean): void;
 export declare function startServer(): Promise<typeof state>;
+//# sourceMappingURL=app.d.ts.map
