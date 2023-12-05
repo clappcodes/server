@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/state.ts"],
+  "sourcesContent": ["import type { BuildContext, ServeResult, BuildOptions } from 'esbuild'\nimport type { ChildProcess } from 'child_process'\n\nexport module state {\n  export var options: BuildOptions\n  export var context: BuildContext\n  export var server: ServeResult\n  // @ts-ignore\n  export var proccess: ChildProcess = process.__cxa_server\n  export var tid: NodeJS.Timeout\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGO,IAAO;AAAA,CAAP,CAAOA,WAAP;AAKE,EAAIA,OAAA,WAAyB,QAAQ;AAAA,GALhC;",
+  "names": ["state"]
+}
