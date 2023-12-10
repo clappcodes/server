@@ -1,5 +1,6 @@
 import * as esbuild from "esbuild";
 import * as path from "path";
+import * as fs from "fs";
 
 export class Props {
 	version = 1;
@@ -15,7 +16,7 @@ export class Props {
 	/**
 	 * Application name
 	 */
-	appName = "Crawless28Nov.app";
+	appName = "Crawless.app";
 
 	/**
 	 * Source path
@@ -33,7 +34,7 @@ export class Props {
 		return path.resolve(this.appPath, "Contents/MacOS/Crawless");
 	}
 	get devPath(): string {
-		return path.resolve(this.resPath, "app.dev");
+		return path.resolve(this.resPath, "dev");
 	}
 	get libPath(): string {
 		return path.resolve(this.devPath, "lib"); // library files
@@ -42,11 +43,12 @@ export class Props {
 		return path.resolve(this.devPath, "pro"); // project files
 	}
 	get runFile(): string {
-		return path.resolve(this.libPath, "@clapp/server/lib/app.js");
+		return path.resolve(this.resPath, "node_modules/@clapp/server/lib/app.js");
 	}
 
 	get build(): esbuild.BuildOptions {
 		return {
+			preserveSymlinks: true,
 			entryPoints: ["./**/*.ts"],
 			platform: "node",
 			color: true,
@@ -59,12 +61,20 @@ export class Props {
 	get serve(): esbuild.ServeOptions {
 		return {
 			port: this.appPort,
-			servedir: this.devPath,
+			servedir: fs.realpathSync(this.devPath),
 		};
 	}
 
 	constructor(init = {}) {
 		Object.assign(this, init);
+	}
+
+	resFile(file: string) {
+		return path.resolve(this.resPath, file);
+	}
+
+	modFile(file: string) {
+		return path.resolve(this.resPath, "node_modules", file);
 	}
 
 	srcFile(file: string) {

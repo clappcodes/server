@@ -15,12 +15,12 @@ export async function startServer() {
 	await state.context.watch();
 	state.server = await state.context.serve(props.serve);
 
-	console.log(`[app] ${startServer.name}`, process.send);
+	console.log(`[app] ${startServer.name}`, process.cwd, __dirname);
 
 	return state;
 }
 
 if (process.env.CXA_SERVER_START) {
 	startServer();
-	console.log("[app] Started");
+	console.log("[app] Started!!!", process.cwd(), __dirname);
 }

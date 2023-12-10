@@ -9,7 +9,8 @@
     "./props": "./lib/props.js",
     "./state": "./lib/state.js",
     "./run": "./lib/run.js",
-    "./app": "./lib/app.js"
+    "./app": "./lib/app.js",
+    "./esbuild": "./esbuild.js"
   },
   "scripts": {
     "esbuild:build": "node ./esbuild.mjs",

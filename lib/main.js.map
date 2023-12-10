@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/main.ts"],
-  "sourcesContent": ["export * from \"./props\";\nexport * as app from \"./app\";\nexport * as run from \"./run\";\nexport * as state from \"./state\";\n// startServer()\n// require(\"../../../app.dev/lib/server/run\").addModulePaths(self).spawnServer(true)\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,yBAAc,oBAAd;AACA,UAAqB;AACrB,UAAqB;AACrB,YAAuB;",
-  "names": []
-}

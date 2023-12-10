@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/app.ts"],
-  "sourcesContent": ["import * as esbuild from \"esbuild\";\nimport { Props } from \"./props\";\nimport { state } from \"./state\";\n\nconst props = new Props(\n\tprocess.env.CLAPP_SERVER_PROPS\n\t\t? JSON.parse(process.env.CLAPP_SERVER_PROPS)\n\t\t: {}\n);\nexport { props, state };\n\nexport async function startServer() {\n\tstate.options = props.build;\n\tstate.context = await esbuild.context(props.build);\n\tawait state.context.watch();\n\tstate.server = await state.context.serve(props.serve);\n\n\tconsole.log(`[app] ${startServer.name}`, process.send);\n\n\treturn state;\n}\n\nif (process.env.CXA_SERVER_START) {\n\tstartServer();\n\tconsole.log(\"[app] Started\");\n}\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,cAAyB;AACzB,mBAAsB;AACtB,mBAAsB;AAEtB,MAAM,QAAQ,IAAI;AAAA,EACjB,QAAQ,IAAI,qBACT,KAAK,MAAM,QAAQ,IAAI,kBAAkB,IACzC,CAAC;AACL;AAGA,eAAsB,cAAc;AACnC,qBAAM,UAAU,MAAM;AACtB,qBAAM,UAAU,MAAM,QAAQ,QAAQ,MAAM,KAAK;AACjD,QAAM,mBAAM,QAAQ,MAAM;AAC1B,qBAAM,SAAS,MAAM,mBAAM,QAAQ,MAAM,MAAM,KAAK;AAEpD,UAAQ,IAAI,SAAS,YAAY,IAAI,IAAI,QAAQ,IAAI;AAErD,SAAO;AACR;AAEA,IAAI,QAAQ,IAAI,kBAAkB;AACjC,cAAY;AACZ,UAAQ,IAAI,eAAe;AAC5B;",
-  "names": []
-}

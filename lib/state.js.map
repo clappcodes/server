@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/state.ts"],
-  "sourcesContent": ["import type { BuildContext, ServeResult, BuildOptions } from \"esbuild\";\nimport type { ChildProcess } from \"child_process\";\n\nexport module state {\n\texport var options: BuildOptions;\n\texport var context: BuildContext;\n\texport var server: ServeResult;\n\texport var proccess: ChildProcess;\n\texport var tid: NodeJS.Timeout;\n\n\tObject.defineProperty(state, \"proccess\", {\n\t\tget: () => globalThis.__clapp_server_proccess,\n\t\tset: (val) => (globalThis.__clapp_server_proccess = val),\n\t\tenumerable: true,\n\t\tconfigurable: true,\n\t});\n}\n//\n"],
-  "mappings": ";;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGO,IAAO;AAAA,CAAP,CAAOA,WAAP;AAON,SAAO,eAAeA,QAAO,YAAY;AAAA,IACxC,KAAK,MAAM,WAAW;AAAA,IACtB,KAAK,CAAC,QAAS,WAAW,0BAA0B;AAAA,IACpD,YAAY;AAAA,IACZ,cAAc;AAAA,EACf,CAAC;AAAA,GAZY;",
-  "names": ["state"]
-}

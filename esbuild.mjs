@@ -5,12 +5,16 @@ import pkg from './package.json' assert { type: "json" }
 const arg = process.argv[2]
 
 console.log(`\n${pkg.name} v${pkg.version}\n`)
-console.log(process.send)
+console.log(process.cwd())
+
+
+// console.log(process.send)
 
 /**
  * @type {import('esbuild').BuildOptions}
  */
 const options = {
+    preserveSymlinks: true,
     entryPoints: ["./src/**/*.ts"],
     sourcemap: 'linked',
     outdir: './lib',

@@ -11,8 +11,6 @@
 		"allowSyntheticDefaultImports": true,
 		"skipLibCheck": true,
 		"forceConsistentCasingInFileNames": true,
-		"baseUrl": ".",
-		"paths": {},
 		"allowJs": true,
 		"emitDeclarationOnly": true,
 		// Highly recommended TS configurations to match behavior with esbuild

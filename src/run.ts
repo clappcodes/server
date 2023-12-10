@@ -41,7 +41,7 @@ export function server(force = false) {
 	}
 
 	const child = spawn(props.cmdPath, [props.runFile], {
-		cwd: props.proPath,
+		cwd: props.devPath,
 		env: {
 			CLAPP_SERVER_PROPS: JSON.stringify(props),
 			/**
